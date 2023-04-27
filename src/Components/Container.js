@@ -1,4 +1,23 @@
 import React from "react";
+   
+const delay = (delayInms) => {
+    return new Promise(resolve => setTimeout(resolve, delayInms));
+} 
+const bubbleSort = async (numbers, onSwap) => {
+    let columnsChanged = numbers;
+
+    for (let i = 0; i < columnsChanged.length; i++) {
+        for (let j = 0; j < columnsChanged.length - 1; j++) {
+            if (columnsChanged[j] > columnsChanged[j + 1]) {
+                await delay(300);
+                let temp = columnsChanged[j] 
+                columnsChanged[j] = columnsChanged[j + 1];
+                columnsChanged[j + 1] = temp;
+                onSwap(columnsChanged);
+            }
+        }
+    }
+}
 
 export class Container extends React.Component {
     constructor(props) {
@@ -9,38 +28,19 @@ export class Container extends React.Component {
 
     }
 
-    updateHeight = (e) =>{
-        this.setState({height: Number(e.target.value)})
-    }
+    updateNumbers = (numbers) => this.setState(numbers)
 
-    delay = (delayInms) => {
-        return new Promise(resolve => setTimeout(resolve, delayInms));
-    }
-    
-    bubbleSort = async () => {
-        let columnsChanged = this.state.numbers;
-    
-        for (let i = 0; i < columnsChanged.length; i++) {
-            for (let j = 0; j < columnsChanged.length - 1; j++) {
-                if (columnsChanged[j] > columnsChanged[j + 1]) {
-                    await this.delay(300);
-                    let temp = columnsChanged[j] 
-                    columnsChanged[j] = columnsChanged[j + 1];
-                    columnsChanged[j + 1] = temp;
-                    this.setState(columnsChanged);
-                }
-            }
-        }
+    updateHeight = (e) => {
+        this.setState({height: Number(e.target.value)})
     }
 
     render() {
         return (
             <div>
                 <div className="container">
-                    {this.state.numbers.map((number, index)=>
-                    <Column height={number} value={number} key={index}/>)}
+                    { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
                 </div>
-                <button onClick={this.bubbleSort}>Bubble Sort</button>
+                <button onClick={() => bubbleSort(this.state.numbers, this.updateNumbers)}>Bubble Sort</button>
             </div>
         )
     }
