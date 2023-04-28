@@ -5,11 +5,16 @@ export class Container extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            numbers: props.numbers
+            numbers: props.numbers,
+            delay: 300
         };
     }
 
     updateNumbers = (numbers) => this.setState(numbers)
+
+    updateDelay = (e) => {
+        this.setState({delay: Number(e.target.value)})
+    } 
 
     render() {
         return (
@@ -17,7 +22,10 @@ export class Container extends React.Component {
                 <div className="container">
                     { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
                 </div>
-                <button onClick={() => bubbleSort(this.state.numbers, this.updateNumbers)}>Bubble Sort</button>
+                <form>
+                    Delay, ms  <input type="number" defaultValue={this.state.delay} onChange={this.updateDelay}/>
+                </form>
+                <button onClick={() => bubbleSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Bubble Sort</button>
             </div>
         )
     }
