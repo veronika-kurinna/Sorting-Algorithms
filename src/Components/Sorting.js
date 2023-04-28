@@ -2,6 +2,12 @@ const delay = (delayInms) => {
     return new Promise(resolve => setTimeout(resolve, delayInms));
 } 
 
+const swap = (array, firstElement, secondElement) => {
+    let temp = array[firstElement] 
+    array[firstElement] = array[secondElement];
+    array[secondElement] = temp;
+}
+
 export const bubbleSort = async (numbers, onSwap, time) => {
     let array = numbers;
 
@@ -9,11 +15,10 @@ export const bubbleSort = async (numbers, onSwap, time) => {
         for (let j = 0; j < array.length - 1; j++) {
             if (array[j] > array[j + 1]) {
                 await delay(time);
-                let temp = array[j] 
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
+                swap(array, j, j + 1)
                 onSwap(array);
             }
         }
     }
 }
+
