@@ -1,5 +1,8 @@
 import React from "react";
+import { shuffleElements } from "./Sorting";
 import { bubbleSort } from "./Sorting";  
+import { insertionSort } from "./Sorting";
+import { selectionSort } from "./Sorting";
 
 export class Container extends React.Component {
     constructor(props) {
@@ -14,7 +17,7 @@ export class Container extends React.Component {
 
     updateDelay = (e) => {
         this.setState({delay: Number(e.target.value)})
-    } 
+    }
 
     render() {
         return (
@@ -25,7 +28,10 @@ export class Container extends React.Component {
                 <form>
                     Delay, ms  <input type="number" defaultValue={this.state.delay} onChange={this.updateDelay} min={0} step={100}/>
                 </form>
+                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)}>Shuffle Elements</button>
                 <button onClick={() => bubbleSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Bubble Sort</button>
+                <button onClick={() => insertionSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Insertion Sort</button>
+                <button onClick={() => selectionSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Selection Sort</button>
             </div>
         )
     }
