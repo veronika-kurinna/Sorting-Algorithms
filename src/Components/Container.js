@@ -23,7 +23,7 @@ export class Container extends React.Component {
                     { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
                 </div>
                 <form>
-                    Delay, ms  <input type="number" defaultValue={this.state.delay} onChange={this.updateDelay}/>
+                    Delay, ms  <input type="number" defaultValue={this.state.delay} onChange={this.updateDelay} min={0} step={100}/>
                 </form>
                 <button onClick={() => bubbleSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Bubble Sort</button>
             </div>
