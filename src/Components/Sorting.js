@@ -128,3 +128,58 @@ const findIndexPivot = async(array, start, finish, onSwap, time) => {
     onSwap(array);
     return rightIndex;
 }
+
+
+export const mergeSort = (numbers) => {
+    exception(numbers.length);
+    let array = numbers;
+
+    if (array.length <= 1) {
+        return;
+    }
+
+    let middle = Math.ceil(array.length / 2);
+    let leftArray = [middle];
+    let rightArray = [array.length - middle];
+
+    for (let i = 0; i < middle; i++) {
+        leftArray[i] = array[i];
+    }
+
+    for (let i = middle; i < array.length; i++) {
+        rightArray[i - middle] = array[i];
+    }
+
+    mergeSort(leftArray);
+    mergeSort(rightArray);
+    merge(array, leftArray, rightArray);
+}
+
+const merge = (mainArray, leftArray, rightArray) => {
+    let indexLeftArray = 0;
+    let indexRightArray = 0;
+    let indexMainArray = 0;
+
+    while (indexLeftArray < leftArray.length && indexRightArray < rightArray.length)
+    {
+        if (leftArray[indexLeftArray] < rightArray[indexRightArray])
+        {
+            mainArray[indexMainArray] = leftArray[indexLeftArray++];
+        }
+        else
+        {
+            mainArray[indexMainArray] = rightArray[indexRightArray++];
+        }
+        indexMainArray++;
+    }
+
+    while (indexLeftArray < leftArray.length)
+    {
+        mainArray[indexMainArray++] = leftArray[indexLeftArray++];
+    }
+
+    while (indexRightArray < rightArray.length)
+    {
+        mainArray[indexMainArray++] = rightArray[indexRightArray++];
+    }
+}
