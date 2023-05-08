@@ -1,5 +1,5 @@
 import React from "react";
-import { shuffleElements } from "./Sorting";
+import { quickSort, shuffleElements } from "./Sorting";
 import { bubbleSort } from "./Sorting";  
 import { insertionSort } from "./Sorting";
 import { selectionSort } from "./Sorting";
@@ -32,6 +32,7 @@ export class Container extends React.Component {
                 <button onClick={() => bubbleSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Bubble Sort</button>
                 <button onClick={() => insertionSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Insertion Sort</button>
                 <button onClick={() => selectionSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Selection Sort</button>
+                <button onClick={() => quickSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Quick Sort</button>
             </div>
         )
     }
