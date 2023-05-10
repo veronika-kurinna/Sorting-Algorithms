@@ -132,8 +132,7 @@ const findIndexPivot = async(array, start, finish, onSwap, time) => {
 
 export const mergeSort = (array) => {
     exception(array.length);
-    let tempArray = [];
-    tempArray.length = array.length;
+    let tempArray = [array.length];
     sort(array, tempArray, 0, array.length - 1);
 }
 
