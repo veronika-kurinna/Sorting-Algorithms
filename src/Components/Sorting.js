@@ -130,56 +130,51 @@ const findIndexPivot = async(array, start, finish, onSwap, time) => {
 }
 
 
-export const mergeSort = (numbers) => {
-    exception(numbers.length);
-    let array = numbers;
-
-    if (array.length <= 1) {
-        return;
-    }
-
-    let middle = Math.ceil(array.length / 2);
-    let leftArray = [middle];
-    let rightArray = [array.length - middle];
-
-    for (let i = 0; i < middle; i++) {
-        leftArray[i] = array[i];
-    }
-
-    for (let i = middle; i < array.length; i++) {
-        rightArray[i - middle] = array[i];
-    }
-
-    mergeSort(leftArray);
-    mergeSort(rightArray);
-    merge(array, leftArray, rightArray);
+export const mergeSort = (array) => {
+    exception(array.length);
+    let tempArray = [];
+    tempArray.length = array.length;
+    sort(array, tempArray, 0, array.length - 1);
 }
 
-const merge = (mainArray, leftArray, rightArray) => {
-    let indexLeftArray = 0;
-    let indexRightArray = 0;
-    let indexMainArray = 0;
+const sort = (array, tempArray, start, finish) => {
+    if (start < finish) {
+        let middleIndex = Math.trunc((start + finish) / 2);
+        sort(array, tempArray, start, middleIndex);
+        sort(array, tempArray, middleIndex + 1, finish);
+        merge(array, tempArray, start, middleIndex, finish);
+    } 
+}
 
-    while (indexLeftArray < leftArray.length && indexRightArray < rightArray.length)
+const merge = (array, tempArray, lowIndex, middleIndex, highIndex) => {
+    let leftIndex = lowIndex;
+    let rightIndex = middleIndex + 1;
+    let arrayIndex = 0;
+
+    while (leftIndex <= middleIndex && rightIndex <= highIndex)
     {
-        if (leftArray[indexLeftArray] < rightArray[indexRightArray])
+        if (array[leftIndex] < array[rightIndex])
         {
-            mainArray[indexMainArray] = leftArray[indexLeftArray++];
+            tempArray[arrayIndex] = array[leftIndex++];
         }
         else
         {
-            mainArray[indexMainArray] = rightArray[indexRightArray++];
+            tempArray[arrayIndex] = array[rightIndex++];
         }
-        indexMainArray++;
+        arrayIndex++;
     }
 
-    while (indexLeftArray < leftArray.length)
+    while (leftIndex <= middleIndex)
     {
-        mainArray[indexMainArray++] = leftArray[indexLeftArray++];
+        tempArray[arrayIndex++] = array[leftIndex++];
     }
 
-    while (indexRightArray < rightArray.length)
+    while (rightIndex <= highIndex)
     {
-        mainArray[indexMainArray++] = rightArray[indexRightArray++];
+        tempArray[arrayIndex++] = array[rightIndex++];
+    }
+
+    for (let i = 0; i < arrayIndex; i++) {
+        array[lowIndex + i] = tempArray[i];
     }
 }

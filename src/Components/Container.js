@@ -1,5 +1,5 @@
 import React from "react";
-import { quickSort, shuffleElements } from "./Sorting";
+import { mergeSort, quickSort, shuffleElements } from "./Sorting";
 import { bubbleSort } from "./Sorting";  
 import { insertionSort } from "./Sorting";
 import { selectionSort } from "./Sorting";
@@ -33,13 +33,14 @@ export class Container extends React.Component {
                 <button onClick={() => insertionSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Insertion Sort</button>
                 <button onClick={() => selectionSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Selection Sort</button>
                 <button onClick={() => quickSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Quick Sort</button>
+                <button onClick={() => mergeSort(this.state.numbers, this.updateNumbers, this.state.delay)}>Merge Sort</button>
             </div>
         )
     }
 }
 
 const Column = (props) => {
-    return <div style={{ height: props.height, width: 50, backgroundColor: 'bisque', margin: 10}}>{props.height}</div>
+    return <div style={{ height: props.height, width: 30, backgroundColor: 'bisque', margin: 10}}>{props.height}</div>
 }
 
 
