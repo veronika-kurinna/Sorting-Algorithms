@@ -1,3 +1,9 @@
+export const generateArray = () => {
+    let numbers = new Array(20);
+    numbers = numbers.fill(0).map(() => Math.floor(Math.random() * (200 - 20 + 1)) + 20);
+    return numbers;
+}
+
 export const shuffleElements = (array, onSwap) => {
     for (let i = 0; i < array.length; i++) {
         let j = Math.floor(Math.random() * i);

@@ -9,7 +9,7 @@ export class Container extends React.Component {
         super(props);
         this.state = {
             numbers: props.numbers,
-            delay: 300
+            delay: 100
         };
     }
 
@@ -23,7 +23,21 @@ export class Container extends React.Component {
         return (
             <div>
                 <div className="container">
-                    { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    <div className="item">
+                        { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    </div>
+                    <div className="item">
+                        { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    </div>
+                    <div className="item">
+                        { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    </div>
+                    <div className="item">
+                        { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    </div>
+                    <div className="item">
+                        { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    </div>
                 </div>
                 <form>
                     Delay, ms  <input type="number" defaultValue={this.state.delay} onChange={this.updateDelay} min={0} step={100}/>
@@ -40,7 +54,7 @@ export class Container extends React.Component {
 }
 
 const Column = (props) => {
-    return <div style={{ height: props.height, width: 30, backgroundColor: 'bisque', margin: 10}}>{props.height}</div>
+    return <div style={{ height: props.height, width: 30, backgroundColor: 'bisque', margin: 5}}>{props.height}</div>
 }
 
 

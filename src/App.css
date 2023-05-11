@@ -1,16 +1,25 @@
 
 .container{
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: flex-end;
-  height: 500px;
-  margin-top: 20px;
-  background-color: aqua;
+}
+
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: aquamarine;
+  width: 800px;
+  height: 230px;
+  padding: 5px;
+  margin: 10px;
 }
 
 h2 {
   text-align: center;
-  padding: 10px;
+  padding: 5px;
 }
 
 div{
