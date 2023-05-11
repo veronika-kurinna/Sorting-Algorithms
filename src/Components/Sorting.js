@@ -130,22 +130,22 @@ const findIndexPivot = async(array, start, finish, onSwap, time) => {
 }
 
 
-export const mergeSort = (array) => {
+export const mergeSort = async(array, onSwap, time) => {
     exception(array.length);
     let tempArray = [array.length];
-    sort(array, tempArray, 0, array.length - 1);
+    await sort(array, tempArray, 0, array.length - 1, onSwap, time);
 }
 
-const sort = (array, tempArray, start, finish) => {
+const sort = async(array, tempArray, start, finish, onSwap, time) => {
     if (start < finish) {
         let middleIndex = Math.floor((start + finish) / 2);
-        sort(array, tempArray, start, middleIndex);
-        sort(array, tempArray, middleIndex + 1, finish);
-        merge(array, tempArray, start, middleIndex, finish);
+        await sort(array, tempArray, start, middleIndex, onSwap, time);
+        await sort(array, tempArray, middleIndex + 1, finish, onSwap, time);
+        await merge(array, tempArray, start, middleIndex, finish, onSwap, time);
     } 
 }
 
-const merge = (array, tempArray, lowIndex, middleIndex, highIndex) => {
+const merge = async(array, tempArray, lowIndex, middleIndex, highIndex, onSwap, time) => {
     let leftIndex = lowIndex;
     let rightIndex = middleIndex + 1;
     let arrayIndex = 0;
@@ -174,6 +174,8 @@ const merge = (array, tempArray, lowIndex, middleIndex, highIndex) => {
     }
 
     for (let i = 0; i < arrayIndex; i++) {
+        await delay(time);
         array[lowIndex + i] = tempArray[i];
+        onSwap(array);
     }
 }
