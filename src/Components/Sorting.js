@@ -138,7 +138,7 @@ export const mergeSort = (array) => {
 
 const sort = (array, tempArray, start, finish) => {
     if (start < finish) {
-        let middleIndex = Math.trunc((start + finish) / 2);
+        let middleIndex = Math.floor((start + finish) / 2);
         sort(array, tempArray, start, middleIndex);
         sort(array, tempArray, middleIndex + 1, finish);
         merge(array, tempArray, start, middleIndex, finish);
