@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h2>Sorting Algorithms Visualizer</h2>
-        <Container numbers={generateArray()}/>
+        <Container/>
       </header>
     </div>
   );
