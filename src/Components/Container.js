@@ -16,29 +16,40 @@ export class Container extends React.Component {
     render() {
         return (
             <div>
-                <div className="container">
-                    <BubbleContainer numbers={generateArray()} delay={this.state.delay}/>
-                    <InsertionContainer numbers={generateArray()} delay={this.state.delay}/>
-                    <SelectionContainer numbers={generateArray()} delay={this.state.delay}/>
-                    <QuickContainer numbers={generateArray()} delay={this.state.delay}/>
-                    <MergeContainer numbers={generateArray()} delay={this.state.delay}/>
-                </div>
                 <form>
                     Delay, ms  <input type="number" defaultValue={100} onChange={this.updateDelay} min={0} step={100}/>
                 </form>
+                <div className="container">
+                    <SortingContainer delay={this.state.delay} sortingName={"Bubble sort"} sort={bubbleSort} />
+                    <SortingContainer delay={this.state.delay} sortingName={"Insertion sort"} sort={insertionSort} />
+                    <SortingContainer delay={this.state.delay} sortingName={"Selection sort"} sort={selectionSort} />
+                    <SortingContainer delay={this.state.delay} sortingName={"Quick sort"} sort={quickSort}/>
+                    <SortingContainer delay={this.state.delay} sortingName={"Merge sort"} sort={mergeSort}/>
+                </div>
             </div>
         )
     }
 }
 
-class BubbleContainer extends React.Component{
+class SortingContainer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            numbers: props.numbers
+            numbers: generateArray(), 
+            isSorting: false,
         }
     }
     updateNumbers = (numbers) => this.setState(numbers);
+
+    handlerClick = async () => {
+        this.setState({
+            isSorting: true
+        });
+        await this.props.sort(this.state.numbers, this.updateNumbers, this.props.delay);
+        this.setState({
+            isSorting: false
+        });
+    }
 
     render() {
         return (
@@ -46,101 +57,12 @@ class BubbleContainer extends React.Component{
                 <div className="item">
                     { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
                 </div>
-                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)}>Shuffle Elements</button>
-                <button onClick={() => bubbleSort(this.state.numbers, this.updateNumbers, this.props.delay)}>Bubble Sort</button>
+                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)} disabled={this.state.isSorting}>Shuffle Elements</button>
+                <button onClick={async () => await this.handlerClick()} disabled={this.state.isSorting}>{this.props.sortingName}</button>
             </div>
         )
     }
 }
-
-class InsertionContainer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            numbers: props.numbers
-        }
-    }
-    updateNumbers = (numbers) => this.setState(numbers);
-
-    render() {
-        return (
-            <div>
-                <div className="item">
-                    { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
-                </div>
-                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)}>Shuffle Elements</button>
-                <button onClick={() => insertionSort(this.state.numbers, this.updateNumbers, this.props.delay)}>Insertion Sort</button>
-            </div>
-        )
-    }
-}
-
-class SelectionContainer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            numbers: props.numbers
-        }
-    }
-    updateNumbers = (numbers) => this.setState(numbers);
-
-    render() {
-        return (
-            <div>
-                <div className="item">
-                    { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
-                </div>
-                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)}>Shuffle Elements</button>
-                <button onClick={() => selectionSort(this.state.numbers, this.updateNumbers, this.props.delay)}>Selection Sort</button>
-            </div>
-        )
-    }
-}
-
-class QuickContainer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            numbers: props.numbers
-        }
-    }
-    updateNumbers = (numbers) => this.setState(numbers);
-
-    render() {
-        return (
-            <div>
-                <div className="item">
-                    { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
-                </div>
-                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)}>Shuffle Elements</button>
-                <button onClick={() => quickSort(this.state.numbers, this.updateNumbers, this.props.delay)}>Quick Sort</button>
-            </div>
-        )
-    }
-}
-
-class MergeContainer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            numbers: props.numbers
-        }
-    }
-    updateNumbers = (numbers) => this.setState(numbers);
-
-    render() {
-        return (
-            <div>
-                <div className="item">
-                    { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
-                </div>
-                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)}>Shuffle Elements</button>
-                <button onClick={() => mergeSort(this.state.numbers, this.updateNumbers, this.props.delay)}>Merge Sort</button>
-            </div>
-        )
-    }
-}
-
 
 const Column = (props) => {
     return <div style={{ height: props.height, width: 30, backgroundColor: 'bisque', margin: 5}}>{props.height}</div>
