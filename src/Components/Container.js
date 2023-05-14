@@ -1,14 +1,33 @@
 import React from "react";
-import { mergeSort, quickSort, shuffleElements, bubbleSort, insertionSort, selectionSort } from "./Sorting";
-import { generateArray } from "./Sorting";
+import { shuffleElements, generateArray, sorting} from "./Sorting";
 
 export class Container extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            numbers: generateArray(),
+            sorting: sorting,
+            selectedSorting: sorting.get('Bubble Sort'),
+            isSorting: false,
             delay: 100
         }
     }
+    updateNumbers = (numbers) => this.setState(numbers);
+
+    updateSort = (e) => {
+        this.setState({ selectedSorting: this.state.sorting.get(e.target.value)});
+    }
+
+    handlerClick = async () => {
+        this.setState({
+            isSorting: true
+        });
+        await this.state.selectedSorting(this.state.numbers, this.updateNumbers, this.state.delay);
+        this.setState({
+            isSorting: false
+        });
+    }
+
     updateDelay = (e) => {
         this.setState({delay: Number(e.target.value)})
     }
@@ -17,48 +36,20 @@ export class Container extends React.Component {
         return (
             <div>
                 <form>
-                    Delay, ms  <input type="number" defaultValue={100} onChange={this.updateDelay} min={0} step={100}/>
+                    Delay, ms  <input type="number" defaultValue={100} onChange={this.updateDelay} min={0} step={100} id="number"/>
                 </form>
                 <div className="container">
-                    <SortingContainer delay={this.state.delay} sortingName={"Bubble sort"} sort={bubbleSort} />
-                    <SortingContainer delay={this.state.delay} sortingName={"Insertion sort"} sort={insertionSort} />
-                    <SortingContainer delay={this.state.delay} sortingName={"Selection sort"} sort={selectionSort} />
-                    <SortingContainer delay={this.state.delay} sortingName={"Quick sort"} sort={quickSort}/>
-                    <SortingContainer delay={this.state.delay} sortingName={"Merge sort"} sort={mergeSort}/>
-                </div>
-            </div>
-        )
-    }
-}
-
-class SortingContainer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            numbers: generateArray(), 
-            isSorting: false,
-        }
-    }
-    updateNumbers = (numbers) => this.setState(numbers);
-
-    handlerClick = async () => {
-        this.setState({
-            isSorting: true
-        });
-        await this.props.sort(this.state.numbers, this.updateNumbers, this.props.delay);
-        this.setState({
-            isSorting: false
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <div className="item">
-                    { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    <div className="item">
+                        { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                    </div>
                 </div>
                 <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)} disabled={this.state.isSorting}>Shuffle Elements</button>
-                <button onClick={async () => await this.handlerClick()} disabled={this.state.isSorting}>{this.props.sortingName}</button>
+                <select onChange={this.updateSort} defaultValue={this.state.selectedSorting}>
+                    {Array.from(this.state.sorting.keys()).map((value, index) =>
+                        <option value={value} key={index}>{value}</option>)
+                    }
+                </select>
+                <button onClick={async () => await this.handlerClick()} disabled={this.state.isSorting}>Sort Elements</button>
             </div>
         )
     }

@@ -185,3 +185,19 @@ const merge = async(array, tempArray, lowIndex, middleIndex, highIndex, onSwap, 
         onSwap(array);
     }
 }
+
+// export var sorting = [
+//     { name: 'Bubble Sort', function: bubbleSort},
+//     { name: 'Insertion Sort', function: insertionSort},
+//     { name: 'Selection Sort', function: selectionSort},
+//     { name: 'Quick Sort', function: quickSort},
+//     { name: 'Merge Sort', function: mergeSort},
+// ]
+
+export const sorting = new Map([
+    ['Bubble Sort', bubbleSort],
+    ['Insertion Sort', insertionSort],
+    ['Selection Sort', selectionSort],
+    ['Quick Sort', quickSort],
+    ['Merge Sort', mergeSort],
+]);
