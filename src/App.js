@@ -1,6 +1,5 @@
 import './App.css';
 import { Container } from './Components/Container';
-import { generateArray } from './Components/Sorting';
 
 function App() {
   return (

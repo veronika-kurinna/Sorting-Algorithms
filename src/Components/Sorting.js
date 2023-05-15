@@ -1,6 +1,6 @@
 export const generateArray = () => {
-    let numbers = new Array(20);
-    numbers = numbers.fill(0).map(() => Math.floor(Math.random() * (200 - 20 + 1)) + 20);
+    let numbers = new Array(35);
+    numbers = numbers.fill(0).map(() => Math.floor(Math.random() * (350 - 20 + 1)) + 20);
     return numbers;
 }
 
@@ -185,14 +185,6 @@ const merge = async(array, tempArray, lowIndex, middleIndex, highIndex, onSwap, 
         onSwap(array);
     }
 }
-
-// export var sorting = [
-//     { name: 'Bubble Sort', function: bubbleSort},
-//     { name: 'Insertion Sort', function: insertionSort},
-//     { name: 'Selection Sort', function: selectionSort},
-//     { name: 'Quick Sort', function: quickSort},
-//     { name: 'Merge Sort', function: mergeSort},
-// ]
 
 export const sorting = new Map([
     ['Bubble Sort', bubbleSort],
