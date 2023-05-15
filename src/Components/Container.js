@@ -1,6 +1,7 @@
 import React from "react";
 import { shuffleElements, generateArray, sorting} from "./Sorting";
 
+
 export class Container extends React.Component {
     constructor(props){
         super(props);
@@ -35,26 +36,34 @@ export class Container extends React.Component {
     render() {
         return (
             <div>
-                <form>
-                    Delay, ms  <input type="number" defaultValue={100} onChange={this.updateDelay} min={0} step={100} id="number"/>
-                </form>
+                <div className="input-group">
+                    <span className="input-group-text">Delay, ms</span>
+                    <div className="col-xs-3">
+                        <input type="number" className="form-control" defaultValue={100} onChange={this.updateDelay} min={0} step={100}></input>
+                    </div>
+                </div>
+                
                 <div className="container">
-                    <div className="item">
+                    <div class="dropdown">
+                        <select onChange={this.updateSort} defaultValue={this.state.selectedSorting} class="form-select">
+                            {Array.from(this.state.sorting.keys()).map((value, index) =>
+                                <option value={value} key={index}>{value}</option>)
+                            }
+                        </select>
+                    </div>
+
+                    <div className="columns">
                         { this.state.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
                     </div>
                 </div>
-                <button onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)} disabled={this.state.isSorting}>Shuffle Elements</button>
-                <select onChange={this.updateSort} defaultValue={this.state.selectedSorting}>
-                    {Array.from(this.state.sorting.keys()).map((value, index) =>
-                        <option value={value} key={index}>{value}</option>)
-                    }
-                </select>
-                <button onClick={async () => await this.handlerClick()} disabled={this.state.isSorting}>Sort Elements</button>
+
+                <button className="btn btn-light" onClick={() => shuffleElements(this.state.numbers, this.updateNumbers)} disabled={this.state.isSorting}>Shuffle Elements</button>
+                <button className="btn btn-light" onClick={async () => await this.handlerClick()} disabled={this.state.isSorting}>Sort Elements</button>
             </div>
         )
     }
 }
 
 const Column = (props) => {
-    return <div style={{ height: props.height, width: 30, backgroundColor: 'bisque', margin: 5}}>{props.height}</div>
+    return <div style={{ height: props.height, width: 30, backgroundColor: 'cornflowerblue', margin: 5, borderRadius: '5px'}}>{props.height}</div>
 }

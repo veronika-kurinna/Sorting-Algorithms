@@ -1,6 +1,6 @@
 export const generateArray = () => {
     let numbers = new Array(35);
-    numbers = numbers.fill(0).map(() => Math.floor(Math.random() * (350 - 20 + 1)) + 20);
+    numbers = numbers.fill(0).map(() => Math.floor(Math.random() * (400 - 25 + 1)) + 25);
     return numbers;
 }
 

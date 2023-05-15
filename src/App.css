@@ -1,38 +1,51 @@
-
-.container{
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-end;
+.App {
+  background-color: #282c34;
+  color: white;
+  height: 100vh;
+  padding-top: 20px;
 }
 
-.item{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  background-color: aquamarine;
-  width: 1300px;
-  height: 400px;
-  padding: 10px;
-  margin: 10px;
-}
-
-h2 {
-  text-align: center;
+.header{
+  margin: 20px;
+  color: cornflowerblue;
 }
 
 div{
   text-align: center;
 }
 
+.container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 10px;
+}
+
+.columns{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 1350px;
+  height: 450px;
+  margin: 10px;
+}
+
 #number {
   width: 5em;
 }
 
-form{
-  margin-bottom: 10px;
+.btn{
+  margin-left: 20px;
 }
 
-button{
+.input-group{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.dropdown{
+  width: 500px;
   margin: 10px;
 }
