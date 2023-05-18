@@ -2,7 +2,7 @@
   background-color: #282c34;
   color: white;
   height: 100vh;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .header{
@@ -31,12 +31,9 @@ div{
   margin: 10px;
 }
 
-#number {
-  width: 5em;
-}
-
 .btn{
   margin-left: 20px;
+  margin-top: 10px;
 }
 
 .input-group{
@@ -48,4 +45,8 @@ div{
 .dropdown{
   width: 500px;
   margin: 10px;
+}
+
+.delay{
+  width: 100px;
 }

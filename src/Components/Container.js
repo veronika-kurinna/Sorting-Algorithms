@@ -38,7 +38,7 @@ export class Container extends React.Component {
             <div>
                 <div className="input-group">
                     <span className="input-group-text">Delay, ms</span>
-                    <div className="col-xs-3">
+                    <div className="delay">
                         <input type="number" className="form-control" defaultValue={100} onChange={this.updateDelay} min={0} step={100}></input>
                     </div>
                 </div>
