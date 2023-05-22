@@ -1,5 +1,5 @@
-import './App.css';
-import { Container } from './Components/Container';
+import './../App.css';
+import { Container } from './Container';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {

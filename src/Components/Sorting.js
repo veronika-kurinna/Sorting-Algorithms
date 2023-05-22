@@ -1,22 +1,8 @@
-export const generateArray = () => {
-    let numbers = new Array(35);
-    numbers = numbers.fill(0).map(() => Math.floor(Math.random() * (400 - 25 + 1)) + 25);
-    return numbers;
-}
-
-export const shuffleElements = (array, onSwap) => {
-    for (let i = 0; i < array.length; i++) {
-        let j = Math.floor(Math.random() * i);
-        swap(array, j, i);
-    }
-    onSwap(array);
-}
-
 const delay = (delayInms) => {
     return new Promise(resolve => setTimeout(resolve, delayInms));
 } 
 
-const swap = (array, firstElement, secondElement) => {
+ export const swap = (array, firstElement, secondElement) => {
     let temp = array[firstElement] 
     array[firstElement] = array[secondElement];
     array[secondElement] = temp;
@@ -186,7 +172,7 @@ const merge = async(array, tempArray, lowIndex, middleIndex, highIndex, onSwap, 
     }
 }
 
-export const sorting = new Map([
+export const sortingMap = new Map([
     ['Bubble Sort', bubbleSort],
     ['Insertion Sort', insertionSort],
     ['Selection Sort', selectionSort],

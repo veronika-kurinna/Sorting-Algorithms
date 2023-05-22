@@ -38,15 +38,15 @@ div{
 
 .input-group{
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
 }
 
-.dropdown{
-  width: 500px;
-  margin: 10px;
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  width: 1350px;
 }
 
-.delay{
-  width: 100px;
+.complexity{
+  margin-top: 15px;
 }
