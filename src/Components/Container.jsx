@@ -1,5 +1,5 @@
 import React from "react";
-import { sortingMap } from "./Sorting";
+import { sortingMap, complexity } from "./Sorting";
 import { shuffleElements, generateArray } from "./Elements"
 import { Columns } from "./Column";
 
@@ -71,14 +71,6 @@ export class Container extends React.Component {
         )
     }
 }
-
-const complexity = new Map([
-    ['Bubble Sort', 'n'],
-    ['Insertion Sort', 'n'],
-    ['Selection Sort', 'n²'],
-    ['Quick Sort', 'n log n'],
-    ['Merge Sort', 'n log n'],
-]);
 
 function Button(props){
     return(

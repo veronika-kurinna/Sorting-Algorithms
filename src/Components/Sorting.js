@@ -179,3 +179,11 @@ export const sortingMap = new Map([
     ['Quick Sort', quickSort],
     ['Merge Sort', mergeSort],
 ]);
+
+export const complexity = new Map([
+    ['Bubble Sort', 'n'],
+    ['Insertion Sort', 'n'],
+    ['Selection Sort', 'n²'],
+    ['Quick Sort', 'n log n'],
+    ['Merge Sort', 'n log n'],
+]);
