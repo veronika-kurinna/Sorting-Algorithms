@@ -40,15 +40,15 @@ export class Container extends React.Component {
     updateDelay = (e) => {
         this.setState({delay: Number(e.target.value)})
     }
-
+    
     render() {
         return (
             <div>
-                <div className="input-group">
-                    <div className="row mb-3">
-                       <label className="col-sm-3 col-form-label">Delay</label>
-                       <div className="col-sm-5">
-                            <input type="number" className="form-control" defaultValue={100} onChange={this.updateDelay} min={0} step={100}/>
+                <div className="inputs">
+                    <div className="row">
+                       <label className="col-sm-4 col-form-label">Delay</label>
+                       <div className="col">
+                            <input type="number" className="form-control" id="form" defaultValue={100} onChange={this.updateDelay} min={0} step={100}/>
                        </div>
                     </div>
                     <div className="dropdown">
