@@ -7,16 +7,16 @@ export const bubbleSort = async (array, onSwap, time) => {
     }
 
     for (let i = 0; i < array.length; i++) {
-        let elementsSwapped = false;
+        let IsElementsSwapped = false;
         for (let j = 0; j < array.length - 1; j++) {
             if (array[j] > array[j + 1]) {
                 await delay(time);
                 swap(array, j, j + 1)
                 onSwap(array);
-                elementsSwapped = true;
+                IsElementsSwapped = true;
             }
         }
-        let isArraySorted = elementsSwapped === false;
+        let isArraySorted = IsElementsSwapped === false;
         if (isArraySorted) {
             break;
         }

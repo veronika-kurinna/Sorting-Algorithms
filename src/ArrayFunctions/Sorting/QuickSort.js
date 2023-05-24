@@ -1,10 +1,12 @@
 import { swap } from "../GeneralFunctions";
 import {delay} from "./../../Helper/Delay"
+import { shuffle } from "../GeneralFunctions";
 
 export const quickSort = async(array, onSwap, time) => {
     if (array.length == 0) {
         throw new Error("Array is empty");
     }
+    shuffle(array, onSwap);
     await sortNumbersQuick(array, 0, array.length - 1, onSwap, time);
 }
 

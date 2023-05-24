@@ -16,6 +16,6 @@ export const complexity = new Map([
     ['Bubble Sort', 'O(n²)'],
     ['Insertion Sort', 'O(n²)'],
     ['Selection Sort', 'O(n²)'],
-    ['Quick Sort', 'O(n²)'],
+    ['Quick Sort', 'O(n log n)'],
     ['Merge Sort', 'O(n log n)'],
 ]);

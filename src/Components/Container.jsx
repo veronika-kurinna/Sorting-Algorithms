@@ -1,14 +1,14 @@
 import React from "react";
 import { sortingMap, complexity } from "../ArrayFunctions/Sorting/SortingMap";
 import { shuffle, generateArray } from "../ArrayFunctions/GeneralFunctions"
-import { Columns } from "./Column";
+import { Columns } from "./Screen";
 
 export class Container extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             numbers: generateArray(),
-            sortingDictionary: sortingMap,
+            sortingMap: sortingMap,
             selectedSorting: sortingMap.get('Bubble Sort'),
             complexity: complexity.get('Bubble Sort'),
             isSorting: false,
@@ -20,13 +20,13 @@ export class Container extends React.Component {
 
     updateSorting = (e) => {
         const updatedState = { 
-            selectedSorting: this.state.sortingDictionary.get(e.target.value),
+            selectedSorting: this.state.sortingMap.get(e.target.value),
             complexity: complexity.get(e.target.value)
         };
         this.setState(updatedState);
     }
 
-    sort = async () => {
+    sortClickHandler = async () => {
         this.setState({
             isSorting: true
         });
@@ -36,7 +36,7 @@ export class Container extends React.Component {
         });
     }
 
-    shuffle = () => {
+    shuffleClickHandler = () => {
         shuffle(this.state.numbers, this.updateNumbers);
     }
 
@@ -57,7 +57,7 @@ export class Container extends React.Component {
                     <div className="dropdown">
                         <select onChange={this.updateSorting} defaultValue={this.state.selectedSorting} className="form-select">
                             {
-                                Array.from(this.state.sortingDictionary.keys()).map((value, index) =>
+                                Array.from(this.state.sortingMap.keys()).map((value, index) =>
                                     <option value={value} key={index}>{value}</option>)
                             }
                         </select>
@@ -67,7 +67,7 @@ export class Container extends React.Component {
                 <div className="container">
                     <div className="bottom">
                         <h5 className="complexity">Complexity: {this.state.complexity}</h5>
-                        <Button shuffle={this.shuffle} sort={this.sort} disabled={this.state.isSorting}/>
+                        <Button shuffle={this.shuffleClickHandler} sort={this.sortClickHandler} disabled={this.state.isSorting}/>
                     </div>
                 </div>
             </div>
