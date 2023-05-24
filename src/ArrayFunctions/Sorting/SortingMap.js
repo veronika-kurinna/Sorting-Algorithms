@@ -5,17 +5,9 @@ import { quickSort } from "./QuickSort";
 import { mergeSort} from "./MergeSort";
 
 export const sortingMap = new Map([
-    ['Bubble Sort', bubbleSort],
-    ['Insertion Sort', insertionSort],
-    ['Selection Sort', selectionSort],
-    ['Quick Sort', quickSort],
-    ['Merge Sort', mergeSort],
-]);
-
-export const complexity = new Map([
-    ['Bubble Sort', 'O(n²)'],
-    ['Insertion Sort', 'O(n²)'],
-    ['Selection Sort', 'O(n²)'],
-    ['Quick Sort', 'O(n log n)'],
-    ['Merge Sort', 'O(n log n)'],
+    ['Bubble Sort', { function: bubbleSort, timeComplexity: 'O(n²)', memoryComplexity: 'O(1)'}],
+    ['Insertion Sort', { function: insertionSort, timeComplexity: 'O(n²)', memoryComplexity: 'O(1)'}],
+    ['Selection Sort', { function: selectionSort, timeComplexity: 'O(n²)', memoryComplexity: 'O(1)'}],
+    ['Quick Sort', { function: quickSort, timeComplexity: 'O(n log n)', memoryComplexity: 'O(log n)'}],
+    ['Merge Sort', { function: mergeSort, timeComplexity: 'O(n log n)', memoryComplexity: 'O(n)'}],
 ]);

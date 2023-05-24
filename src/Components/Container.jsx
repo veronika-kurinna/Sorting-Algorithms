@@ -1,43 +1,35 @@
 import React from "react";
-import { sortingMap, complexity } from "../ArrayFunctions/Sorting/SortingMap";
+import { sortingMap } from "../ArrayFunctions/Sorting/SortingMap";
 import { shuffle, generateArray } from "../ArrayFunctions/GeneralFunctions"
 import { Columns } from "./Screen";
+import { Button } from "./Button";
 
 export class Container extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            numbers: generateArray(),
+            array: generateArray(),
             sortingMap: sortingMap,
             selectedSorting: sortingMap.get('Bubble Sort'),
-            complexity: complexity.get('Bubble Sort'),
             isSorting: false,
             delay: 100
         }
     }
     
-    updateNumbers = (numbers) => this.setState(numbers);
+    updateNumbers = (array) => this.setState(array);
 
     updateSorting = (e) => {
-        const updatedState = { 
-            selectedSorting: this.state.sortingMap.get(e.target.value),
-            complexity: complexity.get(e.target.value)
-        };
-        this.setState(updatedState);
+        this.setState({selectedSorting: this.state.sortingMap.get(e.target.value)});
     }
 
     sortClickHandler = async () => {
-        this.setState({
-            isSorting: true
-        });
-        await this.state.selectedSorting(this.state.numbers, this.updateNumbers, this.state.delay);
-        this.setState({
-            isSorting: false
-        });
+        this.setState({isSorting: true});
+        await this.state.selectedSorting.function(this.state.array, this.updateNumbers, this.state.delay);
+        this.setState({isSorting: false});
     }
 
     shuffleClickHandler = () => {
-        shuffle(this.state.numbers, this.updateNumbers);
+        shuffle(this.state.array, this.updateNumbers);
     }
 
     updateDelay = (e) => {
@@ -56,7 +48,8 @@ export class Container extends React.Component {
                        </div>
                     </div>
                     <div className="dropdown">
-                        <select onChange={this.updateSorting} defaultValue={this.state.selectedSorting} className="form-select" disabled={this.state.isSorting}>
+                        <select onChange={this.updateSorting} defaultValue={this.state.selectedSorting} className="form-select" 
+                            disabled={this.state.isSorting} >
                             {
                                 Array.from(this.state.sortingMap.keys()).map((value, index) =>
                                     <option value={value} key={index}>{value}</option>)
@@ -64,28 +57,16 @@ export class Container extends React.Component {
                         </select>
                     </div>
                 </div>
-                <Columns numbers={this.state.numbers}/>
+                <Columns array={this.state.array}/>
                 <div className="container">
                     <div className="bottom">
-                        <h5 className="complexity">Complexity: {this.state.complexity}</h5>
-                        <Button shuffle={this.shuffleClickHandler} sort={this.sortClickHandler} disabled={this.state.isSorting}/>
+                        <h5 className="complexity">Time complexity: {this.state.selectedSorting.timeComplexity}</h5>
+                        <h5 className="complexity">Memory complexity: {this.state.selectedSorting.memoryComplexity}</h5>
+                        <Button function={this.shuffleClickHandler} disabled={this.state.isSorting} name={'Shuffle Elements'}/>
+                        <Button function={this.sortClickHandler} disabled={this.state.isSorting} name={'Sort Elements'}/>
                     </div>
                 </div>
             </div>
         )
     }
 }
-
-function Button(props){
-    return(
-        <div>
-            <button className="btn btn-light" onClick={props.shuffle} disabled={props.disabled}>
-                Shuffle Elements
-            </button>
-            <button className="btn btn-light" onClick={props.sort} disabled={props.disabled}>
-                Sort Elements
-            </button>
-        </div>
-    )
-}
-

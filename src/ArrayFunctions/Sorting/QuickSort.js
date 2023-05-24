@@ -1,5 +1,5 @@
 import { swap } from "../GeneralFunctions";
-import {delay} from "./../../Helper/Delay"
+import { delay } from "./../../Helper/Delay"
 import { shuffle } from "../GeneralFunctions";
 
 export const quickSort = async(array, onSwap, time) => {
@@ -7,14 +7,14 @@ export const quickSort = async(array, onSwap, time) => {
         throw new Error("Array is empty");
     }
     shuffle(array, onSwap);
-    await sortNumbersQuick(array, 0, array.length - 1, onSwap, time);
+    await sort(array, 0, array.length - 1, onSwap, time);
 }
 
-const sortNumbersQuick = async(array, start, finish, onSwap, time) => {
+const sort = async(array, start, finish, onSwap, time) => {
     if (start < finish) {
         let pivot  = await findIndexPivot(array, start, finish, onSwap, time);
-        await sortNumbersQuick(array, start, pivot - 1, onSwap, time);
-        await sortNumbersQuick(array, pivot + 1, finish, onSwap, time);
+        await sort(array, start, pivot - 1, onSwap, time);
+        await sort(array, pivot + 1, finish, onSwap, time);
     }
 }
 

@@ -1,5 +1,5 @@
 import { swap } from "../GeneralFunctions";
-import {delay} from "./../../Helper/Delay"
+import { delay } from "./../../Helper/Delay"
 
 export const insertionSort = async (array, onSwap, time) => {
     if (array.length == 0) {

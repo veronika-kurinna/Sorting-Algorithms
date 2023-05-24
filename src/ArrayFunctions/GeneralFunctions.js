@@ -1,7 +1,6 @@
 export const generateArray = () => {
-    let numbers = new Array(35);
-    numbers = numbers.fill(0).map(() => Math.floor(Math.random() * (400 - 25 + 1)) + 25);
-    return numbers;
+    let array = new Array(35);
+    return array.fill(0).map(() => Math.floor(Math.random() * (400 - 25 + 1)) + 25);
 }
 
 export const shuffle = (array, onSwap) => {

@@ -1,4 +1,4 @@
-import {delay} from "./../../Helper/Delay"
+import { delay } from "./../../Helper/Delay"
 
 export const mergeSort = async(array, onSwap, time) => {
     if (array.length == 0) {

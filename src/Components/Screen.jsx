@@ -10,7 +10,7 @@ export function Columns(props){
     return(
         <div className="container">
             <div className="columns">
-                { props.numbers.map((number, index) => <Column height={number} value={number} key={index}/>) }
+                { props.array.map((element, index) => <Column height={element} value={element} key={index}/>) }
             </div>
         </div>
     )
