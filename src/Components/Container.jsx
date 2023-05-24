@@ -1,6 +1,6 @@
 import React from "react";
-import { sortingMap, complexity } from "./Sorting";
-import { shuffleElements, generateArray } from "./Elements"
+import { sortingMap, complexity } from "../ArrayFunctions/Sorting/SortingMap";
+import { shuffle, generateArray } from "../ArrayFunctions/GeneralFunctions"
 import { Columns } from "./Column";
 
 export class Container extends React.Component {
@@ -19,8 +19,11 @@ export class Container extends React.Component {
     updateNumbers = (numbers) => this.setState(numbers);
 
     updateSorting = (e) => {
-        this.setState({ selectedSorting: this.state.sortingDictionary.get(e.target.value)});
-        this.setState({ complexity: complexity.get(e.target.value)})
+        const updatedState = { 
+            selectedSorting: this.state.sortingDictionary.get(e.target.value),
+            complexity: complexity.get(e.target.value)
+        };
+        this.setState(updatedState);
     }
 
     sort = async () => {
@@ -34,7 +37,7 @@ export class Container extends React.Component {
     }
 
     shuffle = () => {
-        shuffleElements(this.state.numbers, this.updateNumbers);
+        shuffle(this.state.numbers, this.updateNumbers);
     }
 
     updateDelay = (e) => {
@@ -78,7 +81,9 @@ function Button(props){
             <button className="btn btn-light" onClick={props.shuffle} disabled={props.disabled}>
                 Shuffle Elements
             </button>
-            <button className="btn btn-light" onClick={props.sort} disabled={props.disabled}>Sort Elements</button>
+            <button className="btn btn-light" onClick={props.sort} disabled={props.disabled}>
+                Sort Elements
+            </button>
         </div>
     )
 }

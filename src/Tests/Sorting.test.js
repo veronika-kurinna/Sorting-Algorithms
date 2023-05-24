@@ -1,8 +1,8 @@
-import { bubbleSort } from './Components/Sorting';
-import { insertionSort } from './Components/Sorting';
-import { selectionSort } from './Components/Sorting';
-import { quickSort } from './Components/Sorting';
-import { mergeSort } from './Components/Sorting';
+import { bubbleSort } from '../ArrayFunctions/Sorting/BubbleSort';
+import { insertionSort } from '../ArrayFunctions/Sorting/InsertionSort';
+import { selectionSort } from '../ArrayFunctions/Sorting/SelectionSort';
+import { quickSort } from '../ArrayFunctions/Sorting/QuickSort';
+import { mergeSort } from '../ArrayFunctions/Sorting/MergeSort';
 
 describe(
     'Test Bubble sort',
