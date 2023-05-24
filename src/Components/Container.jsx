@@ -51,11 +51,12 @@ export class Container extends React.Component {
                     <div className="row">
                        <label className="col-sm-4 col-form-label">Delay</label>
                        <div className="col">
-                            <input type="number" className="form-control" id="form" defaultValue={100} onChange={this.updateDelay} min={0} step={100}/>
+                            <input type="number" className="form-control" id="form" defaultValue={100} onChange={this.updateDelay} 
+                                min={0} step={100} disabled={this.state.isSorting}/>
                        </div>
                     </div>
                     <div className="dropdown">
-                        <select onChange={this.updateSorting} defaultValue={this.state.selectedSorting} className="form-select">
+                        <select onChange={this.updateSorting} defaultValue={this.state.selectedSorting} className="form-select" disabled={this.state.isSorting}>
                             {
                                 Array.from(this.state.sortingMap.keys()).map((value, index) =>
                                     <option value={value} key={index}>{value}</option>)
