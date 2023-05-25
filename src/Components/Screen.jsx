@@ -1,6 +1,6 @@
 const Column = (props) => {
     return (
-        <div style={{ height: props.height, width: 30, backgroundColor: 'cornflowerblue', margin: 5, borderRadius: '5px'}}>
+        <div style={{ height: props.height, width: 30, backgroundColor: 'cornflowerblue', margin: 5, borderRadius: '5px', textAlign: "center"}}>
             {props.height}
         </div>
     )

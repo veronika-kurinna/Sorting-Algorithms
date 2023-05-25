@@ -6,9 +6,6 @@
 
 .header{
   color: cornflowerblue;
-}
-
-div{
   text-align: center;
 }
 
@@ -39,17 +36,10 @@ div{
 }
 
 .complexity{
-  margin-top: 15px;
   display: flex;
   justify-content: flex-start;
 }
 
 #form{
   width: 80px;
-  margin-right: 20px;
-}
-
-.btn{
-  margin-top: 10px;
-  margin-left: 20px;
 }
