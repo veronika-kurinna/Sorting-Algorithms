@@ -1,4 +1,4 @@
-import { bubbleSort } from '../ArrayFunctions/Sorting/BubbleSort';
+import { bubbleSort } from '../Scripts/Sorting/BubbleSort';
 
 describe(
     'bubbleSort(), sort array',

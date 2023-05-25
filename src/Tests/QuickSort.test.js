@@ -1,4 +1,4 @@
-import { quickSort } from '../ArrayFunctions/Sorting/QuickSort';
+import { quickSort } from '../Scripts/Sorting/QuickSort';
 
 describe(
     'quickSort(), sort array',

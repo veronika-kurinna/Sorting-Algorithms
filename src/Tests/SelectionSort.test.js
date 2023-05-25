@@ -1,4 +1,4 @@
-import { selectionSort } from '../ArrayFunctions/Sorting/SelectionSort';
+import { selectionSort } from '../Scripts/Sorting/SelectionSort';
 
 describe(
     'selectionSort(), sort array',

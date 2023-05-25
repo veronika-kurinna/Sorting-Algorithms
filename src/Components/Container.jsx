@@ -1,6 +1,6 @@
 import React from "react";
-import { sortingMap } from "../ArrayFunctions/Sorting/Sortings";
-import { shuffle, generateArray } from "../ArrayFunctions/ArrayFunctions"
+import { sortingMap } from "../Scripts/Sorting/Sortings";
+import { shuffle, generateArray } from "../Scripts/ArrayFunctions"
 import { Screen } from "./Screen";
 import { Button } from "./Button";
 

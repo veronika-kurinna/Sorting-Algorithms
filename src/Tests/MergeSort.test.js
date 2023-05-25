@@ -1,4 +1,4 @@
-import { mergeSort } from '../ArrayFunctions/Sorting/MergeSort';
+import { mergeSort } from '../Scripts/Sorting/MergeSort';
 
 describe(
     'mergeSort(), sort array',

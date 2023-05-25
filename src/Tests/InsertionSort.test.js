@@ -1,4 +1,4 @@
-import { insertionSort } from '../ArrayFunctions/Sorting/InsertionSort';
+import { insertionSort } from '../Scripts/Sorting/InsertionSort';
 
 describe(
     'insertionSort(), sort array',
