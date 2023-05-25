@@ -1,5 +1,5 @@
 import { swap } from "../ArrayFunctions";
-import { delay } from "../../Helpers/Delay"
+import { delay } from "../Helpers/Delay"
 import { shuffle } from "../ArrayFunctions";
 
 export const quickSort = async(array, onSwap, time) => {
