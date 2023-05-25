@@ -10,10 +10,8 @@ const Column = (props) => {
 
 export function Screen(props){
     return(
-        <div className="container">
-            <div className="screen">
-                { props.array.map((element, index) => <Column height={element} value={element} key={index}/>) }
-            </div>
+        <div className="screen">
+            { props.array.map((element, index) => <Column height={element} value={element} key={index}/>) }
         </div>
     )
 }

@@ -58,7 +58,9 @@ export class Content extends React.Component {
                         </select>
                     </div>
                 </div>
-                <Screen array={this.state.array}/>
+                <div className="container">
+                    <Screen array={this.state.array}/>
+                </div>
                 <div className="container">
                     <div className="bottom">
                         <div>
