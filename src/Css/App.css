@@ -1,4 +1,4 @@
-.App {
+.app {
   background-color: #282c34;
   color: white;
   height: 100vh;
@@ -42,4 +42,11 @@
 
 #form{
   width: 80px;
+}
+
+.column{
+  width: 30px;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  text-align: center;
 }

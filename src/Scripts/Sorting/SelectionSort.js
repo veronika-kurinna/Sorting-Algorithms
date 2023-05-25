@@ -1,5 +1,5 @@
 import { swap } from "../ArrayFunctions";
-import { delay } from "../Helpers/Delay"
+import { delay } from "../Delay"
 
 export const selectionSort = async(array, onSwap, time) =>{
     if (array.length == 0) {

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className='App pt-4'>
+    <div className='app pt-4'>
       <h2 className='header'>Sorting Algorithms Visualizer</h2>
       <Content/>
     </div>
