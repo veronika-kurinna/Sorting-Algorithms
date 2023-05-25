@@ -1,4 +1,5 @@
 import React from "react";
+import './../Css/Content.css';
 import { sortingMap } from "../Scripts/Sorting/Sortings";
 import { shuffle, generateArray } from "../Scripts/ArrayFunctions"
 import { Screen } from "./Screen";

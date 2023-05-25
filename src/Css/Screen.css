@@ -1,0 +1,14 @@
+.column{
+    width: 30px;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.screen{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 1350px;
+    height: 450px;
+}
