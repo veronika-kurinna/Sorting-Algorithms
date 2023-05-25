@@ -30,9 +30,7 @@ describe(
             }
         ];
         testCases.forEach(test => {
-            it(
-                `Array: ${test.array}, expected: ${test.expected}`,
-                async () => {
+            it(`Array: ${test.array}, expected: ${test.expected}`, async () => {
                     let onSwap = () => {};
                     await quickSort(test.array, onSwap, test.time);
                     expect(test.array).toEqual(test.expected);

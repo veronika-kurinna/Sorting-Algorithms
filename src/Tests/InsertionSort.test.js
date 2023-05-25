@@ -23,7 +23,8 @@ describe(
                 array: [3],
                 expected: [3],
                 time: 1
-            },            {
+            },
+            {
                 array: [ 3, 7, 2, 5, 4, 4 ],
                 expected: [ 2, 3, 4, 4, 5, 7],
                 time: 1
