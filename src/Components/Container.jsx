@@ -64,7 +64,7 @@ export class Container extends React.Component {
                             <h5 className="complexity">Time complexity: {this.state.selectedSorting.timeComplexity}</h5>
                             <h5 className="complexity">Memory complexity: {this.state.selectedSorting.memoryComplexity}</h5>
                         </div>
-                        <div className="buttons">
+                        <div>
                             <Button function={this.shuffleClickHandler} disabled={this.state.isSorting} name={'Shuffle Elements'}/>
                             <Button function={this.sortClickHandler} disabled={this.state.isSorting} name={'Sort Elements'}/>
                         </div>

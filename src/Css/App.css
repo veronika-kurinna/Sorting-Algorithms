@@ -53,8 +53,3 @@ div{
   margin-top: 10px;
   margin-left: 20px;
 }
-
-.buttons{
-  display: flex;
-  justify-content: flex-start;
-}
