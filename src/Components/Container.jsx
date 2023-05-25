@@ -1,7 +1,7 @@
 import React from "react";
 import { sortingMap } from "../ArrayFunctions/Sorting/Sortings";
 import { shuffle, generateArray } from "../ArrayFunctions/ArrayFunctions"
-import { Columns } from "./Screen";
+import { Screen } from "./Screen";
 import { Button } from "./Button";
 
 export class Container extends React.Component {
@@ -57,7 +57,7 @@ export class Container extends React.Component {
                         </select>
                     </div>
                 </div>
-                <Columns array={this.state.array}/>
+                <Screen array={this.state.array}/>
                 <div className="container">
                     <div className="bottom">
                         <div>

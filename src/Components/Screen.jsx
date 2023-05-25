@@ -6,7 +6,7 @@ const Column = (props) => {
     )
 }
 
-export function Columns(props){
+export function Screen(props){
     return(
         <div className="container">
             <div className="columns">
