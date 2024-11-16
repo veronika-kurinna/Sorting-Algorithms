@@ -7,7 +7,7 @@
 .bottom{
     display: flex;
     justify-content: space-between;
-    width: 1350px;
+    width: 83rem;
 }
   
 .complexity{
@@ -16,7 +16,7 @@
 }
   
 #form{
-    width: 80px;
+    width: 5rem;
 }
 
 .container{
@@ -24,4 +24,9 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: flex-end;
+}
+
+.col-form-label{
+    display: flex;
+    align-items: center;
 }

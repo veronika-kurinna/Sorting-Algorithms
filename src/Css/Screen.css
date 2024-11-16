@@ -1,7 +1,7 @@
 .column{
-    width: 30px;
+    width: 2rem;
     background-color: cornflowerblue;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     text-align: center;
 }
 
@@ -9,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    width: 1350px;
-    height: 450px;
+    height: 28rem;
+    width: 83rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
 }
