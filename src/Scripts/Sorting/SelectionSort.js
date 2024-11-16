@@ -2,7 +2,7 @@ import { swap } from "../ArrayFunctions";
 import { delay } from "../Delay"
 
 export const selectionSort = async(array, onSwap, time) =>{
-    if (array.length == 0) {
+    if (array.length === 0) {
         throw new Error("Array is empty");
     }
 
@@ -13,7 +13,7 @@ export const selectionSort = async(array, onSwap, time) =>{
                 indexWithSmallestNumber = j;
             }
         }
-        if (indexWithSmallestNumber != i) {
+        if (indexWithSmallestNumber !== i) {
             await delay(time);
             swap(array, indexWithSmallestNumber, i);
             onSwap(array);

@@ -1,7 +1,7 @@
 import { delay } from "../Delay"
 
 export const mergeSort = async(array, onSwap, time) => {
-    if (array.length == 0) {
+    if (array.length === 0) {
         throw new Error("Array is empty");
     }
     let tempArray = [array.length];

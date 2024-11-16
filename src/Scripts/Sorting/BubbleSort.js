@@ -2,7 +2,7 @@ import { swap } from "../ArrayFunctions";
 import { delay } from "../Delay"
 
 export const bubbleSort = async (array, onSwap, time) => {
-    if (array.length == 0) {
+    if (array.length === 0) {
         throw new Error("Array is empty");
     }
 

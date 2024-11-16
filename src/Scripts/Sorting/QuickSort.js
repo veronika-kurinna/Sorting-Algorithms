@@ -2,7 +2,7 @@ import { swap, shuffle } from "../ArrayFunctions";
 import { delay } from "../Delay";
 
 export const quickSort = async(array, onSwap, time) => {
-    if (array.length == 0) {
+    if (array.length === 0) {
         throw new Error("Array is empty");
     }
     shuffle(array, onSwap);
