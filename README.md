@@ -1,4 +1,4 @@
-## Sorting Algorithms Visualizer
+## Sorting Algorithms
 This project is a visualization of different sorting algorithms. For instance, Bubble Sort, Insertion Sort, Selection Sort, Quick Sort and Merge Sort.
 Users can change algorithms and delay. Time and memory complexity depends on algorithms.
 
